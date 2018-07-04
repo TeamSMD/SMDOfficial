@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="theme-color" content="#ffc9e5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>新生·心生</title>
+    <style>
+        html, body {
+            min-height: 100%;
+            width: 100%;
+            min-width: 17rem;
+            background: #f8f9fa;
+        }
+        div {
+            vertical-align: top;
+        }
+        #CenterScreen{
+        padding: 2rem;
+        width: 30rem;
+        position: fixed;
+    }
+    </style>
+    <script>
+        function PlaceTheShit()
+        {
+            let a = document.getElementById("CenterScreen");//获取div块对象
+            let Height=document.documentElement.clientHeight;//取得浏览器页面可视区域的宽度
+            let Width=document.documentElement.clientWidth;//取得浏览器页面可视区域的宽度
+            let gao1 = a.offsetHeight;//获取div块的高度值
+            let gao2 = a.offsetWidth;//获取div块的宽度值
+            let Sgao1= (Height - gao1)/2+"px";
+            let Sgao2= (Width - gao2)/2+"px";
+            a.style.top=Sgao1;
+            a.style.left=Sgao2;
+        }
+    </script>
+</head>
+<body onload="PlaceTheShit()" onresize="PlaceTheShit()">
+    <div id="CenterScreen" style="padding: 2rem; width: 97%; max-width: 30rem; min-width: 15rem;">
+        <div class="card-body">
+            <h4 style="alignment: center; margin-bottom: 1rem">登录</h4>
+            {% if AlertMessage %}
+                <div class="alert alert-danger" role="alert">
+                    {{ AlertMessage }}
+                </div>
+            {% endif %}
+            <form action="/artexpo/login" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_username">用户名</label>
+                    <input type="text" name="username" class="form-control" id="id_username">
+                </div>
+                <div class="form-group">
+                    <label for="id_password">密  码</label>
+                    <input type="password" name="password" class="form-control" id="id_password">
+                </div>
+                <button type="submit" class="btn btn-outline-success" style="width: 100%;">登录</button>
+            </form>
+            <a href="/artexpo/register" class="btn btn-primary" style="margin-top: 1rem; width: 100%">现在注册</a>
+        </div>
+    </div>
+</body>
+</html>
