@@ -66,7 +66,7 @@ def register(request):
 def reward(request, workNo):
     if request.method == "POST":
         if int(request.POST['coins']) <= 0:
-            raise Http404
+            return render(request, 'reward_bullshit.html', {'work_id': workNo})
         if artExpo_users.get_coins(request.session['username']) >= int(request.POST['coins']):
             artExpo_works.add_coin(workNo, int(request.POST['coins']))
             artExpo_users.use_coins(request.session['username'], request.POST['coins'])
@@ -74,7 +74,9 @@ def reward(request, workNo):
                           {'coins_left': artExpo_users.get_coins(request.session['username']),
                            'work_id': workNo})
         else:
-            return HttpResponse('No enough coins')
+            return render(request, 'reward_failed.html', {'work_id': workNo,
+                                                          'coins_left': artExpo_users.get_coins
+                                                          (request.session['username'])})
     else:
         if 'username' not in request.session or request.session['username'] == '':
             request.session['cont'] = '/artexpo/reward/' + str(workNo) + '/'

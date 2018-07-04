@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="theme-color" content="#ffc9e5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>新生·心生❤给作者打赏❤</title>
+    <style>
+        html, body {
+            min-height: 100%;
+            width: 100%;
+            min-width: 17rem;
+            background: #ffc9e5;
+        }
+        div {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<a href="/">
+			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/recentactivities">最近活动</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-item nav-link active" href="/artexpo">艺术展
+                        <span class="sr-only">(current)</span>
+                    </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/#cards">联系我们</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    <div class="alert" style="height: 17rem; margin: 1rem; background: #fff;">
+        <h3 style="text-align: center">打赏失败</h3>
+        <hr/>
+        <p style="text-align: center; margin: 0;"><strong style="font-size: 2rem; margin: 0">硬币不足</strong></p>
+        <p style="text-align: center">当前剩余 <strong style="font-size: 2rem;">{{ coins_left }}</strong> 个硬币</p>
+        <a class="btn btn-primary" href="/artexpo/work/{{ work_id }}/" style="margin: 1rem; width: 90%;">返回</a>
+    </div>
+</body>
+</html>
