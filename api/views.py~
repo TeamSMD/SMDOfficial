@@ -1,0 +1,18 @@
+from django.shortcuts import HttpResponse
+from django.http import JsonResponse
+from db import artExpo_users
+
+# Create your views here.
+
+
+def index(request):
+    return HttpResponse('Team-SMD APIs')
+
+
+def check_password(request):
+    if request.method == 'GET':
+        if 'username' in request.GET and 'password' in request.GET:
+            r = artExpo_users.check_password(request.GET['username'], request.GET['password'])
+            return JsonResponse({'ok': r})
+        else:
+            return JsonResponse({'error', 'args missing'})

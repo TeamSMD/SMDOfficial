@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Official.apps.OfficialConfig',
     'ArtExpo_Web',
     'SMDAdmin',
+    'api',
 ]
 
 MIDDLEWARE = [

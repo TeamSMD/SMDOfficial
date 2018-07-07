@@ -54,7 +54,14 @@
         {% if mode == 1 %}
             <h3 style="color: #155724">欢迎来到心生·新生</h3>
             <hr/>
-            {% if username %}
+            <p style="margin: 0;">Hi~欢迎来到心生·心生艺术展~</p>
+            <p>这个网站是为了能让大家理解作品的意义，也可以让大家给作者打赏哟~</p>
+            {% if not username %}
+                <p style="margin-bottom: 0.4rem">首先，为了能给作者打赏，你需要先 <a href="/artexpo/login" class="btn btn-success">登录</a> 我们的网站</p>
+                <p>什么？还没有账号嘛？ <a href="/artexpo/register" class="btn btn-primary">现在注册一个</a></p>
+            {% else %}
+                <p style="margin: 0;">看来你已经登录了噢~在现场用微信扫描作品旁边的二维码就可以看到作品的所有资料啦~</p>
+                <p>如果要给作者打赏的话，扫码添加微信机器人客服充值，就可以在作品页面给作者打赏啦！</p>
             {% endif %}
         {% endif %}
     </div>

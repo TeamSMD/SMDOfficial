@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="24800" />
+    <option name="totalTimeSeconds" value="28732" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -46,7 +46,20 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="861">
+              <caret line="41" column="89" lean-forward="true" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,7 +96,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Official/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/SMDOfficial/settings.py" />
         <option value="$PROJECT_DIR$/Official/views.py" />
         <option value="$PROJECT_DIR$/Official/urls.py" />
         <option value="$PROJECT_DIR$/Official/templates/contact_us.html" />
@@ -91,7 +103,6 @@
         <option value="$PROJECT_DIR$/db/users.py" />
         <option value="$PROJECT_DIR$/db/artExpo.py" />
         <option value="$PROJECT_DIR$/Official/templates/index.html" />
-        <option value="$PROJECT_DIR$/ArtExpo_Web/templates/ArtExpo_Index.html" />
         <option value="$PROJECT_DIR$/Official/templates/recent_activities.html" />
         <option value="$PROJECT_DIR$/db/aartExpo_transaction_log.py" />
         <option value="$PROJECT_DIR$/db/artExpo_transaction_log.py" />
@@ -99,7 +110,6 @@
         <option value="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin_login.html" />
         <option value="$PROJECT_DIR$/SMDAdmin/views.py" />
         <option value="$PROJECT_DIR$/SMDAdmin/urls.py" />
-        <option value="$PROJECT_DIR$/SMDOfficial/urls.py" />
         <option value="$PROJECT_DIR$/db/artExpo_works.py" />
         <option value="$PROJECT_DIR$/ArtExpo_Web/templates/author.html" />
         <option value="$PROJECT_DIR$/ArtExpo_Web/templates/works.html" />
@@ -111,6 +121,11 @@
         <option value="$PROJECT_DIR$/ArtExpo_Web/views.py" />
         <option value="$PROJECT_DIR$/ArtExpo_Web/templates/reward_failed.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e8b872f8-b47a-46f4-9b3c-74e21aa8edb6/console.sql" />
+        <option value="$PROJECT_DIR$/ArtExpo_Web/templates/ArtExpo_Index.html" />
+        <option value="$PROJECT_DIR$/SMDOfficial/settings.py" />
+        <option value="$PROJECT_DIR$/SMDOfficial/urls.py" />
+        <option value="$PROJECT_DIR$/api/urls.py" />
+        <option value="$PROJECT_DIR$/api/views.py" />
       </list>
     </option>
   </component>
@@ -123,9 +138,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="186" />
-    <option name="y" value="-33" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="466" />
+    <option name="y" value="-14" />
     <option name="width" value="1824" />
     <option name="height" value="1095" />
   </component>
@@ -141,6 +156,11 @@
             <path>
               <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
               <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
@@ -170,14 +190,15 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\Official\static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\api" />
       <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\Official\static\js" />
       <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\ArtExpo_Web\static\img\ArtExpo\Authors" />
       <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\ArtExpo_Web\static\img\ArtExpo\Works" />
       <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\Official\static\img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\Official\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,15 +271,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1839" height="1191" extended-state="6" />
+    <frame x="-7" y="-7" width="1839" height="1191" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50027394" side_tool="true" weight="0.39888683" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.270872" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3283859" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3283859" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32931355" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18849315" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" x="601" y="106" width="840" height="888" id="emBrowser" order="0" sideWeight="0.5004299" side_tool="true" weight="0.3294956" />
@@ -298,20 +320,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/artExpo_works.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3024">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/author.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArtExpo_Web/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -505,16 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SMDOfficial/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#635#667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SMDAdmin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -536,7 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/ArtExpo_Index.html" />
     <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/author.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -562,20 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/artExpo_users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1323">
-          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SMDOfficial/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-735">
-          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -608,13 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="77" column="69" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -651,6 +627,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SMDOfficial/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/ArtExpo_Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SMDOfficial/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/artExpo_users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="41" column="89" lean-forward="true" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

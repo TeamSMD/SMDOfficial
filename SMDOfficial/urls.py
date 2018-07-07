@@ -21,10 +21,13 @@ import ArtExpo_Web
 from ArtExpo_Web import urls
 import SMDAdmin
 from SMDAdmin import urls
+import api
+from api import urls
 
 
 urlpatterns = [
     path('', include(Official.urls)),
     path('artexpo/', include(ArtExpo_Web.urls)),
-    path('smdadmin/', include(SMDAdmin.urls))
+    path('smdadmin/', include(SMDAdmin.urls)),
+    path('api/', include(api.urls))
 ]
