@@ -40,5 +40,8 @@ def auth(request):
 
 def add_value(request):
     if request.method == 'GET' and 'auth' in request.session and request.session['auth']:
-        artExpo_users.add_coins(request.GET['username'], request.GET['coins'])
-        return HttpResponse('OK')
+        if artExpo_users.check_username_availability(request.GET['username']):
+            return HttpResponse('User not found')
+        else:
+            artExpo_users.add_coins(request.GET['username'], request.GET['coins'])
+            return HttpResponse('OK')
