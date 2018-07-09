@@ -38,6 +38,8 @@ def check_password(username: str, password: str)->bool:
 
 
 def add_fail_attempt(username: str):
+    if not user_exists(username):
+        return
     conn = connect()
     cur = conn.cursor()
     cur.execute('select login_attempt from smd_admins where username = ?;', (username, ))
@@ -49,6 +51,8 @@ def add_fail_attempt(username: str):
 
 
 def clear_fail_attempt(username: str):
+    if not user_exists(username):
+        return
     conn = connect()
     cur = conn.cursor()
     cur.execute('update smd_admins set login_attempt = 0 where username = ?;', (username, ))
@@ -57,6 +61,8 @@ def clear_fail_attempt(username: str):
 
 
 def check_login_attempt(username: str)->bool:
+    if not user_exists(username):
+        return False
     conn = connect()
     cur = conn.cursor()
     cur.execute('select count(*) from smd_admins  where username = ? and login_attempt <= 10;', (username, ))
@@ -75,3 +81,14 @@ def update_password(username: str, password: str):
     cur.execute('update smd_admins set password = ? where username = ?', (password, username))
     conn.commit()
     conn.close()
+
+
+def user_exists(username: str)->bool:
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('select count(*) from smd_admins where username = ?;', (username, ))
+    r = cur.fetchall()
+    if r[0][0] == 0:
+        return False
+    else:
+        return True

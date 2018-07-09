@@ -27,6 +27,7 @@
         <option value="$MODULE_DIR$/Official/templates" />
         <option value="$MODULE_DIR$/ArtExpo_Web/templates" />
         <option value="$MODULE_DIR$/SMDAdmin/templates" />
+        <option value="$MODULE_DIR$/SMDAdmin/templates/SMDAdmin" />
       </list>
     </option>
   </component>

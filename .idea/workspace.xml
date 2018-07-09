@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38ce7542-97dd-4ee3-8334-8409bda24659" name="Default" comment="" />
+    <list default="true" id="38ce7542-97dd-4ee3-8334-8409bda24659" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/works.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SMDOfficial.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SMDOfficial.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin_Console.html" beforeDir="false" afterPath="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/Console.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMDAdmin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SMDAdmin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artExpo_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/artExpo_data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/smd_admins.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/smd_admins.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="28829" />
+    <option name="totalTimeSeconds" value="34829" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -47,14 +57,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/views.py">
+      <file leaf-file-name="Console.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/Console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+            <state relative-caret-position="21">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="works.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/works.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="861">
+              <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#1440#1447#1#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SMDAdmin/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1029">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="smd_admins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/smd_admins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1764">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
@@ -80,6 +121,7 @@
       <find>how</find>
       <find>pause</find>
       <find>carousel</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>队员</replace>
@@ -108,7 +150,6 @@
         <option value="$PROJECT_DIR$/db/artExpo_transaction_log.py" />
         <option value="$PROJECT_DIR$/db/artExpo_users.py" />
         <option value="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin_login.html" />
-        <option value="$PROJECT_DIR$/SMDAdmin/views.py" />
         <option value="$PROJECT_DIR$/SMDAdmin/urls.py" />
         <option value="$PROJECT_DIR$/db/artExpo_works.py" />
         <option value="$PROJECT_DIR$/ArtExpo_Web/templates/author.html" />
@@ -126,6 +167,11 @@
         <option value="$PROJECT_DIR$/SMDOfficial/urls.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/db/smd_admins.py" />
+        <option value="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/SMDAdmin_Console.html" />
+        <option value="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/Console.html" />
+        <option value="$PROJECT_DIR$/SMDAdmin/views.py" />
+        <option value="$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/works.html" />
       </list>
     </option>
   </component>
@@ -138,7 +184,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="466" />
     <option name="y" value="-14" />
     <option name="width" value="1824" />
@@ -160,17 +206,25 @@
             <path>
               <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
               <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
               <item name="ArtExpo_Web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
               <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
+              <item name="SMDAdmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
               <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
+              <item name="SMDAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SMDOfficial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SMDOfficial" type="462c0819:PsiDirectoryNode" />
+              <item name="SMDAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="SMDAdmin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -191,6 +245,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\SMDAdmin\templates\SMDAdmin" />
       <recent name="C:\Users\Kevin\Documents\MEGAsync\PyProjs\SMDOfficial\Official\static" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -281,10 +336,11 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3283859" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32931355" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18849315" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18849315" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" x="601" y="106" width="840" height="888" id="emBrowser" order="0" sideWeight="0.5004299" side_tool="true" weight="0.3294956" />
       <window_info anchor="right" id="Database" order="4" weight="0.32931507" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32931355" />
       <window_info anchor="right" id="SciView" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972603" weight="0.39888683" />
@@ -298,10 +354,38 @@
       <window_info anchor="right" x="0" y="0" width="409" height="991" id="Documentation" order="5" side_tool="true" weight="0.329863" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.32846087" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32931355" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3283859" />
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Embedded Web Browser" order="8" sideWeight="0.49957007" weight="0.3294956" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" x="601" y="106" width="840" height="888" id="emBrowser" order="0" sideWeight="0.5004299" side_tool="true" weight="0.3294956" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18849315" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.270872" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32931355" />
+      <window_info anchor="right" x="0" y="0" width="409" height="991" id="Documentation" order="5" side_tool="true" weight="0.329863" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32931507" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32931355" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50027394" side_tool="true" weight="0.39888683" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3219557" />
+      <window_info anchor="right" id="SciView" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972603" weight="0.39888683" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.3283859" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Coverage" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3283859" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -320,35 +404,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Official/templates/recent_activities.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="58" column="65" lean-forward="true" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/artExpo_works.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1806">
-          <caret line="88" column="80" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/ArtExpo_Index.html" />
-    <entry file="file://$PROJECT_DIR$/db/artExpo_transaction_log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/artExpo_users.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -527,20 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/works.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="63" column="14" lean-forward="true" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/author.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/artExpo_works.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3087">
@@ -548,17 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin_login.html">
+    <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="33" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SMDAdmin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -675,10 +709,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        <state relative-caret-position="966">
+          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://e8b872f8-b47a-46f4-9b3c-74e21aa8edb6/schema/main/table/smd_admins">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/smd_admins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SMDAdmin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/Console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/works.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="63" column="14" lean-forward="true" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtExpo_Web/templates/author.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="62" column="86" lean-forward="true" selection-start-line="62" selection-start-column="86" selection-end-line="62" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SMDAdmin/templates/SMDAdmin/works.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <element signature="e#1440#1447#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

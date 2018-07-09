@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
     {% load static %}
@@ -12,12 +12,29 @@
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <title>SMD后台管理</title>
 </head>
-<body>
+<body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
     <nav class="navbar bg-light navbar-light">
 		<a href="#" class="navbar-brand">
 			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">SMD后台管理
 		</a>
         <a href="/smdadmin/logout" class="btn btn-outline-primary">退出登录</a>
 	</nav>
+    <div style="padding: 1rem;">
+        <a href="/smdadmin/works">
+            <div class="alert alert-secondary" style="padding: 1rem;">
+                <p style="margin: 0;">作品管理</p>
+            </div>
+        </a>
+        <a href="/smdadmin/authors">
+            <div class="alert alert-secondary" style="padding: 1rem;">
+                <p style="margin: 0">作者管理</p>
+            </div>
+        </a>
+        <a href="/smdadmin/transactions">
+            <div class="alert alert-secondary" style="padding: 1rem;">
+                <p style="margin: 0">交易记录</p>
+            </div>
+        </a>
+    </div>
 </body>
 </html>
