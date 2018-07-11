@@ -93,6 +93,11 @@ def add_coin(id:int, coin_count:int):
 
 
 def get_work(id:int)->dict:
+    """
+        get work detail
+    :param id: work id
+    :return: {'name': [作品名称], 'author': [作者id], 'description': [作品描述], 'coins': [硬币数]}
+    """
     conn = connect()
     cur = conn.cursor()
     cur.execute('select * from art_detail where id = ?;', (id,))
@@ -107,6 +112,11 @@ def get_work(id:int)->dict:
 
 
 def get_author(id:int)->dict:
+    """
+        get author detail
+    :param id: author id
+    :return: {'name': author's name, 'description': author info in dict}
+    """
     conn = connect()
     cur = conn.cursor()
     cur.execute('select * from author_detail where id = ?;', (id, ))
@@ -122,6 +132,10 @@ def get_author(id:int)->dict:
 
 
 def list_all_works()->list:
+    """
+        get all works from database
+    :return: {'name': [作品名称], 'author': [作者id], 'description': [作品描述], 'coins': [硬币数]}
+    """
     conn = connect()
     cur = conn.cursor()
     cur.execute('select * from art_detail;')
@@ -135,6 +149,10 @@ def list_all_works()->list:
 
 
 def list_all_author()->list:
+    """
+        get all authors from database
+    :return: {'name': [作者名], 'description': [作者信息，content vary]}
+    """
     conn = connect()
     cur = conn.cursor()
     cur.execute('select * from author_detail;')
