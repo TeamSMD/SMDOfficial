@@ -54,3 +54,14 @@ def work_list(request):
         for work in works.values():
             work['author_name']= authors[work['author']]['name']
         return render(request, 'SMDAdmin/works.html', {'works': works})
+
+
+def work_detail(request, work_id):
+    if check_if_logged_in(request):
+        work = artExpo_works.get_work(work_id)
+        author = artExpo_works.get_author(work['author'])
+        return render(request, 'SMDAdmin/work_detail.html',
+                      {'work_id': work_id,
+                       'work_name': work['name'],
+                       'author_name': author['name'],
+                       'author_id': work['author']})

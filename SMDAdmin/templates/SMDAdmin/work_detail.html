@@ -11,8 +11,75 @@
     <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <title>SMD后台管理</title>
+    <style>
+        html, body {
+            min-height: 100%;
+            width: 100%;
+            min-width: 17rem;
+            background: #ffc9e5;
+        }
+    </style>
+    <script>
+        let author_id = {{ author_id }};
+        function change_author() {
+            console.log(author_id)
+        }
+    </script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<a href="/">
+			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/recentactivities">近期活动</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-item nav-link active" href="/artexpo">艺术展
+                        <span class="sr-only">(current)</span>
+                    </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/#cards">联系我们</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
+    <div style="border-radius: 1rem; margin: 2rem; padding: 1rem; text-align: center; box-shadow: 0 0 20px deepskyblue; background: #fff;">
+        <div style="border-radius: 0.5rem; width: 100%; box-shadow: 0 0 15px black; background: #fff;">
+            <object data="{% static 'img/ArtExpo/Works' %}/{{ work_id }}.jpg" type="image/jpg">
+                <div style="display: table; height: 100%; width: 100%;">
+                    <div style="display: table-cell; vertical-align: middle; padding-top: 2rem; padding-bottom: 2rem">
+                        <img style="width: 60%;" src="{% static 'img/img_No_Image.png' %}">
+                    </div>
+                </div>
+            </object>
+        </div>
+        <form action="/smdadmin/update_work/" style="margin: 1rem 1.5rem 0;">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">作品名称</span>
+                </div>
+                <input class="form-control" type="text" placeholder="作品名称" name="work_name" value="{{ work_name }}">
+            </div>
+            <p style="margin-bottom: 0.5rem;"><a id="a_change_author" href="javascript:change_author()" style="font-size: 14px;">
+                作者：{{ author_name }}
+            </a></p>
+            <label for="textarea_description">作品描述</label>
+            <textarea class="form-control" id="textarea_description">sadfasdasfdnkl</textarea>
+            <a class="btn btn-primary" href="javascript:window.history.back();" style="width: 100%; margin-top: 1rem">返回</a>
+            <button type="submit" class="btn btn-success" style="margin-top: 0.5rem; width: 100%;">保存更改</button>
+        </form>
+    </div>
 </body>
 </html>
