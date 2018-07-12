@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from db import smd_admins
+from db import smd_admins, artExpo_works, artExpo_users
 
 
 # Create your views here.
@@ -48,4 +48,9 @@ def logout(request):
 
 
 def work_list(request):
-    pass
+    if check_if_logged_in(request):
+        works = artExpo_works.list_all_works()
+        authors  = artExpo_works.list_all_authors()
+        for work in works.values():
+            work['author_name']= authors[work['author']]['name']
+        return render(request, 'SMDAdmin/works.html', {'works': works})

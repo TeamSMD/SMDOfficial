@@ -11,12 +11,19 @@
     <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <title>SMD后台管理</title>
-    <script type="text/javascript">
-        function get_authors() {
-            let lst_authors = document.getElementById('id_new_work_author');
-            lst_authors.options.add('asfjksa')
+    <style type="text/css">
+        .work_itm {
+            display: flex;
+            height: 7rem;
+            padding: 0.7rem;
+            margin: 0.5rem;
+            width: calc(100% - 1rem);
         }
-    </script>
+        .work_itm:hover {
+            cursor: pointer;
+            box-shadow: 0 0 5px black;
+        }
+    </style>
 </head>
 <body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
     <nav class="navbar bg-light navbar-light">
@@ -51,15 +58,26 @@
         </div>
     </div>
     <div>
-        <div class="alert alert-success">
-            <p>添加作品</p>
+        <div style="padding: 0.5rem;" class="alert alert-success">
+            <p style="margin: 0;">添加作品</p>
         </div>
-        {% for itm in works %}
-            <div style="height: 7rem; padding: 0.7rem; width: 100%;" class="alert alert-secondary">
-                <img style="display: inline; height: 5.5rem;" src="{% static 'img/ArtExpo/Works' %}/{{ work_id }}">
+        {% for id, itm in works.items %}
+            <div class="alert alert-secondary work_itm">
+                <div style="display: inline; height: 5.5rem; width: 5.5rem; text-align: center">
+                    <div style="display: table; height: 100%; width: 100%;">
+                        <div style="display: table-cell; vertical-align: middle;">
+                            <object style="width: 100%; max-height: 100%;" data="{% static 'img/ArtExpo/Works' %}/{{ id }}.jpg" type="image/jpg">
+                                <img style="width: 100%; max-height: 100%;" src="{% static 'img/ArtExpo/register/cross.png' %}">
+                            </object>
+
+                        </div>
+                    </div>
+                </div>
                 <div style="display: inline; margin-left: 1rem;">
-                    <p style="margin-bottom: 0.5rem">《{{ itm.name }}》</p>
-                    <p>{{ itm.author }}</p>
+                    <div style="margin-top: 1.2rem">
+                        <p style="display: inline; ;margin-bottom: 0.5rem">《{{ itm.name }}》</p>
+                        <a href="#{{ itm.author }}"><p style="margin-left: 0.8rem">{{ itm.author_name }}</p></a>
+                    </div>
                 </div>
             </div>
         {% endfor %}
