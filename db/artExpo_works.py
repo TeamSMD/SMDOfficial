@@ -34,15 +34,16 @@ def make_table():
     conn.close()
 
 
-def new_art_work(name:str, author:int, description:str):
+def new_art_work(name: str, author: int, description: str):
     conn = connect()
     cur = conn.cursor()
-    cur.execute('insert into art_detail (name, author, description, coins) values (?, ?, ?, 0);', (name,author,description))
+    cur.execute('insert into art_detail (name, author, description, coins) values (?, ?, ?, 0);',
+                (name, author, description))
     conn.commit()
     conn.close()
 
 
-def new_author(name:str, description:str):
+def new_author(name: str, description: str):
     """
         add new author
     :param name: name
@@ -55,7 +56,7 @@ def new_author(name:str, description:str):
     conn.close()
 
 
-def get_coin_count(id:int)->int:
+def get_coin_count(id: int)->int:
     """
         to know how many coins an art work has
     :param id: the id of the art work
@@ -74,7 +75,7 @@ def get_coin_count(id:int)->int:
         return -1
 
 
-def add_coin(id:int, coin_count:int):
+def add_coin(id: int, coin_count: int):
     """
         add coins to an art work
     :param id: the id of the art work
@@ -92,7 +93,7 @@ def add_coin(id:int, coin_count:int):
         raise Exception('Art Work Not Found')
 
 
-def get_work(id:int)->dict:
+def get_work(id: int)->dict:
     """
         get work detail
     :param id: work id
@@ -102,7 +103,7 @@ def get_work(id:int)->dict:
     cur = conn.cursor()
     cur.execute('select * from art_detail where id = ?;', (id,))
     r = cur.fetchall()
-    if r.__len__() !=0:
+    if r.__len__() != 0:
         work_info = {'name': r[0][1], 'author': r[0][2], 'description': r[0][3], 'coins': r[0][4]}
         conn.close()
         return work_info
@@ -111,7 +112,7 @@ def get_work(id:int)->dict:
         return {'error': 'Not Found'}
 
 
-def get_author(id:int)->dict:
+def get_author(id: int)->dict:
     """
         get author detail
     :param id: author id
@@ -131,7 +132,7 @@ def get_author(id:int)->dict:
         return {'error': 'Not Found'}
 
 
-def list_all_works()->list:
+def list_all_works()->dict:
     """
         get all works from database
     :return: {'name': [作品名称], 'author': [作者id], 'description': [作品描述], 'coins': [硬币数]}
@@ -140,26 +141,72 @@ def list_all_works()->list:
     cur = conn.cursor()
     cur.execute('select * from art_detail;')
     works = cur.fetchall()
-    r = []
+    r = {}
     for w in works:
         work_info = {'name': w[1], 'author': w[2], 'description': w[3], 'coins': w[4]}
-        r.append(work_info)
+        r[w[0]] = work_info
     conn.close()
     return r
 
 
-def list_all_author()->list:
+def list_all_authors()->dict:
     """
         get all authors from database
-    :return: {'name': [作者名], 'description': [作者信息，content vary]}
+    :return: {{'name': [作者名], 'description': [作者信息，content vary]}}
     """
     conn = connect()
     cur = conn.cursor()
-    cur.execute('select * from author_detail;')
+    cur.execute('select * from author_detail order by id;')
     authors = cur.fetchall()
-    r = []
+    r = {}
     for a in authors:
         author_info = {'name': a[1], 'description': a[2]}
-        r.append(author_info)
+        r[a[0]] = author_info
     conn.close()
     return r
+
+
+def delete_work(id: int):
+    """
+        delete work
+    :param id: work id
+    """
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('delete from art_detail where id = ?', (id, ))
+    conn.commit()
+    conn.close()
+
+
+def delete_author(id: int):
+    """
+        delete author
+    :param id: author id
+    """
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('delete from author_detail where id = ?', (id, ))
+    conn.commit()
+    conn.close()
+
+
+def update_work(id: int, name: str, author: str, description: str):
+    conn = connect()
+    cur = conn.cursor()
+    if name is not None and name != '':
+        cur.execute('update art_detail set name = ? where id = ?;', (name, id))
+    if author is not None and author != '':
+        cur.execute('update art_detail set author = ? where id = ?;', (author, id))
+    if description is not None and description != '':
+        cur.execute('update art_detail set description = ? where id = ?;', (description, id))
+    conn.commit()
+    conn.close()
+
+
+def update_author(id: int, name: str, description: str):
+    conn = connect()
+    cur = conn.cursor()
+    if name is not None and name != '':
+        cur.execute('update author_detail set name = ? where id = ?;', (name, id))
+    if description is not None and description != '':
+        cur.execute('update author_detail set description = ? where id = ?;', (description, id))
