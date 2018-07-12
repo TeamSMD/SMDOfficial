@@ -24,6 +24,11 @@
             box-shadow: 0 0 5px black;
         }
     </style>
+    <script type="text/javascript">
+        function redirect(id) {
+            window.location.replace('/smdadmin/work_detail/'+ id + '/');
+        }
+    </script>
 </head>
 <body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
     <nav class="navbar bg-light navbar-light">
@@ -62,7 +67,7 @@
             <p style="margin: 0;">添加作品</p>
         </div>
         {% for id, itm in works.items %}
-            <div class="alert alert-secondary work_itm">
+            <div class="alert alert-secondary work_itm" onclick="redirect({{ id }})">
                 <div style="display: inline; height: 5.5rem; width: 5.5rem; text-align: center">
                     <div style="display: table; height: 100%; width: 100%;">
                         <div style="display: table-cell; vertical-align: middle;">

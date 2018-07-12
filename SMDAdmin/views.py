@@ -61,7 +61,22 @@ def work_detail(request, work_id):
         work = artExpo_works.get_work(work_id)
         author = artExpo_works.get_author(work['author'])
         return render(request, 'SMDAdmin/work_detail.html',
-                      {'work_id': work_id,
-                       'work_name': work['name'],
-                       'author_name': author['name'],
-                       'author_id': work['author']})
+                        {'work_id': work_id,
+                        'work_name': work['name'],
+                        'author_name': author['name'],
+                        'author_id': work['author'],
+                        'author_list': artExpo_works.list_all_authors(),
+                         'work_description': work['description']})
+
+
+def update_work(request):
+    if check_if_logged_in(request):
+        if request.method == 'GET':
+            return HttpResponseRedirect('/smdadmin')
+        elif request.method == 'POST':
+            post_data = request.POST
+            artExpo_works.update_work(int(post_data['txt_work_id']),
+                                      post_data['work_name'],
+                                      post_data['txt_author_id'],
+                                      post_data['work_description'])
+            return HttpResponseRedirect('/smdadmin/work_detail/' + post_data['txt_work_id'] + '/')
