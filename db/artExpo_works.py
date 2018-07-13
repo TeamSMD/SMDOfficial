@@ -34,7 +34,7 @@ def make_table():
     conn.close()
 
 
-def new_art_work(name: str, author: int, description: str):
+def new_art_work(name: str, author: int, description: str)->int:
     conn = connect()
     cur = conn.cursor()
     cur.execute('insert into art_detail (name, author, description, coins) values (?, ?, ?, 0);',
@@ -42,7 +42,15 @@ def new_art_work(name: str, author: int, description: str):
     conn.commit()
     cur.execute('select id from art_detail where name = ? and author = ? and description = ?;',
                 (name, author, description))
-    conn.close()
+    r = cur.fetchall()
+    if r.__len__() != 0:
+        r = r[0][0]
+        conn.close()
+        return r
+    else:
+        conn.close()
+        return -1
+
 
 
 def new_author(name: str, description: str):

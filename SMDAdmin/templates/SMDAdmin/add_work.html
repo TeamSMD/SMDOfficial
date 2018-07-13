@@ -97,7 +97,7 @@
                 </div>
             </object>
         </div>
-        <form action="/smdadmin/update_work" method="post" style="margin: 1rem 1.5rem 0;">
+        <form action="/smdadmin/add_work" method="post" style="margin: 1rem 1.5rem 0;">
             {% csrf_token %}
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -108,7 +108,7 @@
             <p style="margin-bottom: 0.5rem;"><a id="a_change_author" href="javascript:$('#dlg_sel_author').modal('toggle')" style="font-size: 14px;">
                 作者：{{ author_list.1.name }}
             </a></p>
-            <input id="author_id" name="txt_author_id" type="hidden" value="1">
+            <input id="author_id" name="author_id" type="hidden" value="1">
             <label for="textarea_description">作品描述</label>
             <textarea class="form-control" name="work_description" id="textarea_description"></textarea>
             <a class="btn btn-primary" href="javascript:window.history.back();" style="width: 100%; margin-top: 1rem">返回</a>

@@ -93,6 +93,10 @@ def add_work(request):
         if request.method == 'GET':
             return render(request, 'SMDAdmin/add_work.html', {'author_list': artExpo_works.list_all_authors()})
         elif request.method == 'POST':
-            pass
+            post_data = request.POST
+            work_id = artExpo_works.new_art_work(post_data['work_name'],
+                                                 post_data['author_id'],
+                                                 post_data['work_description'])
+            return HttpResponseRedirect('/smdadmin/')
     else:
         raise Http404

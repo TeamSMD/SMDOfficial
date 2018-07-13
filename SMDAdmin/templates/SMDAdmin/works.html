@@ -30,7 +30,7 @@
         }
     </script>
 </head>
-<body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
+<body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; min-height: 100vh;">
     <nav class="navbar bg-light navbar-light">
 		<a href="#" class="navbar-brand">
 			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">SMD后台管理
@@ -38,34 +38,12 @@
 
         <a href="/smdadmin/logout" class="btn btn-outline-primary">退出登录</a>
 	</nav>
-    <div class="modal fade" id="dlg_add_work" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>添加作品</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="id_new_work_name">作品名称</label>
-                            <input type="text" id="id_new_work_name" placeholder="作品名称">
-                        </div>
-                        <div class="form-group">
-                            <label for="id_new_work_author">作者</label>
-                            <select type="text" id="id_new_work_author"></select>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div>
-        <div style="padding: 0.5rem;" class="alert alert-success">
-            <p style="margin: 0;">添加作品</p>
-        </div>
+        <a href="/smdadmin/add_work">
+            <div style="padding: 1rem;" class="alert alert-success">
+                <p style="margin: 0;">添加作品</p>
+            </div>
+        </a>
         {% for id, itm in works.items %}
             <div class="alert alert-secondary work_itm" onclick="redirect({{ id }})">
                 <div style="display: inline; height: 5.5rem; width: 5.5rem; text-align: center">
