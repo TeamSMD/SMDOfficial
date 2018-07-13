@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%; background: #f8f9fa;">
+<html lang="en" style="min-height: 100%; background: #f8f9fa;">
 <head>
     <meta charset="UTF-8">
     {% load static %}
@@ -29,9 +29,6 @@
             document.getElementById('txt_author_id').value = author_id;
             $('#dlg_sel_author').modal('toggle')
         }
-        function change_author() {
-            console.log(author_id)
-        }
     </script>
 </head>
 <body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
@@ -52,9 +49,7 @@
 					<a class="nav-item nav-link" href="/recentactivities">近期活动</a>
 				</li>
                 <li class="nav-item">
-					<a class="nav-item nav-link active" href="/artexpo">艺术展
-                        <span class="sr-only">(current)</span>
-                    </a>
+					<a class="nav-item nav-link" href="/artexpo">艺术展</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/#cards">联系我们</a>
