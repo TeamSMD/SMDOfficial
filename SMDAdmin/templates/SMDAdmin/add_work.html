@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" style="min-height: 100%; background: #f8f9fa;">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="theme-color" content="#ffc9e5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>SMD后台管理</title>
+    <style>
+        html, body {
+            min-height: 100%;
+            width: 100%;
+            min-width: 17rem;
+            background: #ffc9e5;
+        }
+    </style>
+    <script>
+        function author_chosen(author_id, sender) {
+            console.log(author_id);
+            document.getElementsByClassName('list-group-item list-group-item-action active')[0]
+                .className = 'list-group-item list-group-item-action';
+            sender.className = 'list-group-item list-group-item-action active';
+            document.getElementById('a_change_author').innerHTML = '作者：' + sender.innerHTML;
+            document.getElementById('txt_author_id').value = author_id;
+            $('#dlg_sel_author').modal('toggle')
+        }
+    </script>
+</head>
+<body style="max-width: 50rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; height: 100%;">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<a href="/">
+			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/recentactivities">近期活动</a>
+				</li>
+                <li class="nav-item">
+					<a class="nav-item nav-link" href="/artexpo">艺术展</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="/#cards">联系我们</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    <div class="modal fade" id="dlg_sel_author" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" aria-hidden="true" role="document">
+                <div class="modal-header">
+                    <h5>选择作者</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        {% for id, author in author_list.items %}
+                            {% if id == author_id %}
+                                <button id="lst_authors_{{ id }}" type="button" class="list-group-item list-group-item-action active"
+                                        onclick="author_chosen({{ id }}, this)">
+                                    {{ author.name }}<!--abcdefghijklmnopqrstuvwxyzxyz now you see you can sing the abc-->
+                                </button>
+                            {% else %}
+                                <button id="lst_authors_{{ id }}" type="button" class="list-group-item list-group-item-action"
+                                        onclick="author_chosen({{ id }}, this)">
+                                    {{ author.name }}
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div style="border-radius: 1rem; margin: 2rem; padding: 1rem; text-align: center; box-shadow: 0 0 20px deepskyblue; background: #fff;">
+        <div>
+            <object style="width: 100%;border-radius: 0.5rem; box-shadow: 0 0 15px" data="{% static 'img/ArtExpo/Works' %}/{{ work_id }}.jpg" type="image/jpg">
+                <div style="display: table; height: 100%; width: 100%;">
+                    <div style="display: table-cell; vertical-align: middle; padding-top: 2rem; padding-bottom: 2rem">
+                        <img style="width: 60%;" src="{% static 'img/img_No_Image.png' %}">
+                    </div>
+                </div>
+            </object>
+        </div>
+        <form action="/smdadmin/update_work" method="post" style="margin: 1rem 1.5rem 0;">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">作品名称</span>
+                </div>
+                <input class="form-control" type="text" placeholder="作品名称" name="work_name" value="{{ work_name }}">
+            </div>
+            <p style="margin-bottom: 0.5rem;"><a id="a_change_author" href="javascript:$('#dlg_sel_author').modal('toggle')" style="font-size: 14px;">
+                作者：{{ author_name }}
+            </a></p>
+            <input id="txt_author_id" name="txt_author_id" type="hidden" value="{{ author_id }}">
+            <input type="hidden" name="txt_work_id" value="{{ work_id }}">
+            <label for="textarea_description">作品描述</label>
+            <textarea class="form-control" name="work_description" id="textarea_description">{{ work_description }}</textarea>
+            <a class="btn btn-primary" href="javascript:window.history.back();" style="width: 100%; margin-top: 1rem">返回</a>
+            <button type="submit" class="btn btn-success" style="margin-top: 0.5rem; width: 100%;">保存更改</button>
+        </form>
+    </div>
+</body>
+</html>
