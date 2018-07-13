@@ -40,6 +40,8 @@ def new_art_work(name: str, author: int, description: str):
     cur.execute('insert into art_detail (name, author, description, coins) values (?, ?, ?, 0);',
                 (name, author, description))
     conn.commit()
+    cur.execute('select id from art_detail where name = ? and author = ? and description = ?;',
+                (name, author, description))
     conn.close()
 
 

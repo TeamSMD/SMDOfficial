@@ -8,5 +8,6 @@ urlpatterns = [
     path('logout', views.logout),
     path('works', views.work_list),
     path('work_detail/<int:work_id>/', views.work_detail),
-    path('update_work', views.update_work)
+    path('update_work', views.update_work),
+    path('add_work', views.add_work)
 ]

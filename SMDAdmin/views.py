@@ -1,9 +1,9 @@
-from django.shortcuts import render, HttpResponseRedirect
-from db import smd_admins, artExpo_works, artExpo_users
+from django.shortcuts import render, HttpResponseRedirect, Http404
+from db import smd_admins, artExpo_works  # , artExpo_users
 
 
 # Create your views here.
-def check_if_logged_in(request)->bool:
+def check_if_logged_in(request) -> bool:
     if 'username' in request.session and request.session['username'] != '':
         return True
     else:
@@ -50,10 +50,12 @@ def logout(request):
 def work_list(request):
     if check_if_logged_in(request):
         works = artExpo_works.list_all_works()
-        authors  = artExpo_works.list_all_authors()
+        authors = artExpo_works.list_all_authors()
         for work in works.values():
-            work['author_name']= authors[work['author']]['name']
+            work['author_name'] = authors[work['author']]['name']
         return render(request, 'SMDAdmin/works.html', {'works': works})
+    else:
+        raise Http404
 
 
 def work_detail(request, work_id):
@@ -61,12 +63,14 @@ def work_detail(request, work_id):
         work = artExpo_works.get_work(work_id)
         author = artExpo_works.get_author(work['author'])
         return render(request, 'SMDAdmin/work_detail.html',
-                        {'work_id': work_id,
-                        'work_name': work['name'],
-                        'author_name': author['name'],
-                        'author_id': work['author'],
-                        'author_list': artExpo_works.list_all_authors(),
-                         'work_description': work['description']})
+                      {'work_id': work_id,
+                       'work_name': work['name'],
+                       'author_name': author['name'],
+                       'author_id': work['author'],
+                       'author_list': artExpo_works.list_all_authors(),
+                       'work_description': work['description']})
+    else:
+        raise Http404
 
 
 def update_work(request):
@@ -80,3 +84,15 @@ def update_work(request):
                                       post_data['txt_author_id'],
                                       post_data['work_description'])
             return HttpResponseRedirect('/smdadmin/work_detail/' + post_data['txt_work_id'] + '/')
+    else:
+        raise Http404
+
+
+def add_work(request):
+    if check_if_logged_in(request):
+        if request.method == 'GET':
+            return render(request, 'SMDAdmin/add_work.html', {'author_list': artExpo_works.list_all_authors()})
+        elif request.method == 'POST':
+            pass
+    else:
+        raise Http404

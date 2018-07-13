@@ -1,6 +1,5 @@
 from db import smd_admins
 
-
 if __name__ == '__main__':
     username = input('Username: ')
     password = input('Password: ')
