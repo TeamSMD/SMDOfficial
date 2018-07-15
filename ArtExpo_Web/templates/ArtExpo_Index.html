@@ -56,7 +56,7 @@
             <hr/>
             <p style="margin: 0;">Hi~欢迎来到心生·心生艺术展~</p>
             <p>这个网站是为了能让大家理解作品的意义，也可以让大家给作者打赏哟~</p>
-            {% if not username %}
+            {% if username == None%}
                 <p style="margin-bottom: 0.4rem">首先，为了能给作者打赏，你需要先 <a href="/artexpo/login" class="btn btn-success">登录</a> 我们的网站</p>
                 <p>什么？还没有账号嘛？ <a href="/artexpo/register" class="btn btn-primary">现在注册一个</a></p>
             {% else %}

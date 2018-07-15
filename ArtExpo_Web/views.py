@@ -1,4 +1,4 @@
-from django.shortcuts import render, Http404, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, Http404, HttpResponseRedirect
 from django.http import JsonResponse
 from db import artExpo_works, artExpo_users
 
@@ -9,7 +9,10 @@ ARTEXPO_MODE = 1
 
 def index(request):
     print(request.META['HTTP_USER_AGENT'])
-    return render(request, 'ArtExpo_Index.html', {'mode': ARTEXPO_MODE})
+    if 'username' in request.session:
+        return render(request, 'ArtExpo_Index.html', {'username': request.session['username'], 'mode': ARTEXPO_MODE})
+    else:
+        return render(request, 'ArtExpo_Index.html', {'mode': ARTEXPO_MODE})
 
 
 def Works(request, workNo):
@@ -105,3 +108,7 @@ def api_check_username(request):
             return JsonResponse({'ok': False})
     else:
         raise Http404
+
+
+def reg_success(request):
+    return render(request, 'artExpo_Reg_Success.html')

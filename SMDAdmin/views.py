@@ -4,7 +4,7 @@ from db import smd_admins, artExpo_works  # , artExpo_users
 
 # Create your views here.
 def check_if_logged_in(request) -> bool:
-    if 'username' in request.session and request.session['username'] != '':
+    if 'admin_username' in request.session and request.session['username'] != '':
         return True
     else:
         return False
@@ -27,7 +27,7 @@ def login(request):
     elif request.method == "POST":
         if smd_admins.check_password(request.POST['username'], request.POST['password']):
             if smd_admins.check_login_attempt(request.POST['username']):
-                request.session['username'] = request.POST['username']
+                request.session['admin_username'] = request.POST['username']
                 smd_admins.clear_fail_attempt(request.POST['username'])
                 return HttpResponseRedirect('/smdadmin')
             else:
@@ -43,7 +43,7 @@ def login(request):
 
 
 def logout(request):
-    request.session['username'] = ''
+    request.session['admin_username'] = ''
     return HttpResponseRedirect('/smdadmin')
 
 
@@ -97,6 +97,22 @@ def add_work(request):
             work_id = artExpo_works.new_art_work(post_data['work_name'],
                                                  post_data['author_id'],
                                                  post_data['work_description'])
-            return HttpResponseRedirect('/smdadmin/')
+            work = artExpo_works.get_work(work_id)
+            author = artExpo_works.get_author(work['author'])
+            return render(request, 'SMDAdmin/work_detail.html',
+                          {'AlertMessage': '添加成功, 作品id: ' + str(work_id),
+                           'Back_Url': '/smdadmin/works',
+                           'work_id': work_id,
+                           'work_name': work['name'],
+                           'author_name': author['name'],
+                           'author_id': work['author'],
+                           'author_list': artExpo_works.list_all_authors(),
+                           'work_description': work['description']})
     else:
         raise Http404
+
+
+def del_work(request, work_id):
+    if check_if_logged_in(request):
+        artExpo_works.delete_work(work_id)
+        return HttpResponseRedirect('/smdadmin/works')

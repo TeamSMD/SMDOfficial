@@ -22,25 +22,14 @@
         div {
             vertical-align: top;
         }
-        #CenterScreen{
-        padding: 2rem;
-        width: 30rem;
-        position: fixed;
-    }
+        .CenterScreen{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
     </style>
     <script>
-        function PlaceTheShit()
-        {
-            let a = document.getElementById("CenterScreen");//获取div块对象
-            let Height=document.documentElement.clientHeight;//取得浏览器页面可视区域的宽度
-            let Width=document.documentElement.clientWidth;//取得浏览器页面可视区域的宽度
-            let gao1 = a.offsetHeight;//获取div块的高度值
-            let gao2 = a.offsetWidth;//获取div块的宽度值
-            let Sgao1= (Height - gao1)/2+"px";
-            let Sgao2= (Width - gao2)/2+"px";
-            a.style.top=Sgao1;
-            a.style.left=Sgao2;
-        }
         function checkUsername() {
             let img = document.getElementById('img_username_availability');
             if (document.getElementById('id_username').value === ""){
@@ -80,7 +69,7 @@
             let v_password_r = document.getElementById('id_password_r_validation');
             let v_disp_name = document.getElementById('id_disp_name_validation');
             if (username.value !== '' && password.value !== '' && disp_name.value !== '' &&
-                password.value === password_r.value && password.value.length > 6){
+                password.value === password_r.value && password.value.length >= 6){
                 btnSubmit.disabled = false;
                 v_password_r.innerHTML = '';
                 v_password.innerHTML = '';
@@ -108,8 +97,8 @@
         }
     </script>
 </head>
-<body onload="PlaceTheShit()" onresize="PlaceTheShit()">
-    <div id="CenterScreen" style="padding: 2rem; width: 97%; max-width: 30rem; min-width: 15rem;">
+<body>
+    <div class="CenterScreen" style="padding: 2rem; width: 97%; max-width: 30rem; min-width: 15rem;">
         <div class="card-body">
             <h4 style="alignment: center; margin-bottom: 1rem">注册</h4>
             {% if AlertMessage %}

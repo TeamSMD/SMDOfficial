@@ -11,8 +11,25 @@
     <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <title>注册成功</title>
+    <style>
+        .CenterScreen{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        html, body{
+            background: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
+    <div class="CenterScreen" style="min-width: 10rem; max-width: 30rem; width: 90%; height: 20rem; background: #ffffff; padding: 1rem;">
+        <div style="text-align: center">
+            <h4 style="color: #28a745; display: inline;"><img style="margin-bottom: 5px" src="{% static 'img/ArtExpo/register/check.png' %}">注册成功</h4>
+            <hr>
+        </div>
 
+    </div>
 </body>
 </html>
