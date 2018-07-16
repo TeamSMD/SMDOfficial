@@ -4,7 +4,7 @@ from db import smd_admins, artExpo_works  # , artExpo_users
 
 # Create your views here.
 def check_if_logged_in(request) -> bool:
-    if 'admin_username' in request.session and request.session['username'] != '':
+    if 'admin_username' in request.session and request.session['admin_username'] != '':
         return True
     else:
         return False
@@ -117,3 +117,14 @@ def del_work(request, work_id):
     if check_if_logged_in(request):
         artExpo_works.delete_work(work_id)
         return HttpResponseRedirect('/smdadmin/works')
+
+
+def author_detail(request, author_id):
+    if check_if_logged_in(request):
+        author_info = artExpo_works.get_author(author_id)
+        if 'error' in author_info:
+            raise Http404
+        else:
+            return render(request, 'SMDAdmin/author.html', {'author_name': author_info['name'],
+                                                   'description': author_info['description'],
+                                                   'author_id': author_id})

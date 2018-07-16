@@ -21,9 +21,28 @@
         div {
             vertical-align: top;
         }
+        .info_key {
+            border-right: 1px dashed #bebebe;
+            border-bottom: 1px dashed lightskyblue;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+        }
+        .info_value {
+            border-bottom: 1px dashed lightskyblue;
+            word-wrap: break-spaces;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+        }
     </style>
+    <script>
+        function test() {
+            {% autoescape off %}
+                let j = "{{ description }}";
+                j = j.replace(/'/g, '\"');
+                console.log(JSON.parse(j));
+            {% endautoescape %}
+        }
+    </script>
 </head>
-<body>
+<body onload="test()">
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<a href="/">
 			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
@@ -58,13 +77,11 @@
         <div style="margin: 1rem 1.5rem 0;">
             <p style="font-size: 2.5rem;">{{ author_name }}</p>
             <p style="margin-bottom: 1rem; text-align: center; max-width: 100%; font-size: 1rem;">关于作者</p>
-            <table style="width: 100%; max-width: 100%; text-align: left;">
+            <table style="width: 100%; max-width: 100%; text-align: left; table-layout: fixed">
                 {% for key, value in description.items %}
                     <tr>
-                        <td style="border-right: 1px dashed #bebebe; border-bottom: 1px dashed lightskyblue;
-                         padding: 0.5rem 0.5rem 0 0.5rem; width: {{ key|length }}em;">{{ key }}</td>
-                        <td style="border-bottom: 1px dashed lightskyblue; word-wrap: break-spaces;
-                         padding: 0.5rem 0.5rem 0 0.5rem;">{{ value }}</td>
+                        <td contenteditable="true" class="info_key" style="width: {{ key|length }}em;">{{ key }}</td>
+                        <td contenteditable="true" class="info_value">{{ value }}</td>
                     </tr>
                 {% endfor %}
             </table>
