@@ -85,6 +85,12 @@
                     </tr>
                 {% endfor %}
             </table>
+            <button class="btn btn-primary" id="btn_enable_edit">编辑</button>
+            <button class="btn btn-danger" id="btn_del_empty">删除空白行</button>
+            <hr>
+            <form action="/smdadmin/update_author">
+                <input type="hidden" id="upd_info">
+            </form>
         </div>
     </div>
 </body>

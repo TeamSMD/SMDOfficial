@@ -10,6 +10,5 @@ urlpatterns = [
     path('register', views.register),
     path('api/checkusername', views.api_check_username),
     path('reward/<int:workNo>/', views.reward),
-    path('logout', views.logout),
-    path('success', views.reg_success)
+    path('logout', views.logout)
 ]
