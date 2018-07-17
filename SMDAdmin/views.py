@@ -138,3 +138,16 @@ def author_detail(request, author_id):
             return render(request, 'SMDAdmin/author_detail.html', {'author_name': author_info['name'],
                                                    'description': author_info['description'],
                                                    'author_id': author_id})
+    else:
+        raise Http404
+
+
+def update_author(request):
+    if check_if_logged_in(request):
+        post_data = request.POST
+        artExpo_works.update_author(post_data['id'],
+                                    post_data['name'],
+                                    post_data['description'])
+        return HttpResponseRedirect('/smdadmin/author_detail/' + str(post_data['id']) + '/')
+    else:
+        raise Http404

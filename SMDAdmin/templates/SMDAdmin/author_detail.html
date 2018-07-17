@@ -201,6 +201,7 @@
             <hr>
             <form action="/smdadmin/update_author" method="post">
                 {% csrf_token %}
+                <input type="hidden" id="upd_info_id" name="id" value="{{ author_id }}">
                 <input type="hidden" id="upd_info_des" name="description">
                 <input type="hidden" id="upd_info_name" name="name">
                 <button type="submit" class="btn btn-success btn-common" id="btn_submit">提交更改</button>

@@ -220,3 +220,5 @@ def update_author(id: int, name: str, description: str):
         cur.execute('update author_detail set name = ? where id = ?;', (name, id))
     if description is not None and description != '':
         cur.execute('update author_detail set description = ? where id = ?;', (description, id))
+    conn.commit()
+    conn.close()
