@@ -53,7 +53,7 @@ def new_art_work(name: str, author: int, description: str)->int:
 
 
 
-def new_author(name: str, description: str):
+def new_author(name: str, description: str)->int:
     """
         add new author
     :param name: name
@@ -63,7 +63,11 @@ def new_author(name: str, description: str):
     cur = conn.cursor()
     cur.execute('insert into author_detail (name, description) values (?, ?);', (name, description))
     conn.commit()
+    cur.execute('select id from author_detail where name = ? and description = ?;', (name, description))
+    r = cur.fetchall()
+    r = r[0][0]
     conn.close()
+    return int(r)
 
 
 def get_coin_count(id: int)->int:

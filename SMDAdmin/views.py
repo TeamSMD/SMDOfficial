@@ -136,8 +136,8 @@ def author_detail(request, author_id):
             raise Http404
         else:
             return render(request, 'SMDAdmin/author_detail.html', {'author_name': author_info['name'],
-                                                   'description': author_info['description'],
-                                                   'author_id': author_id})
+                                                                   'description': author_info['description'],
+                                                                   'author_id': author_id})
     else:
         raise Http404
 
@@ -149,5 +149,25 @@ def update_author(request):
                                     post_data['name'],
                                     post_data['description'])
         return HttpResponseRedirect('/smdadmin/author_detail/' + str(post_data['id']) + '/')
+    else:
+        raise Http404
+
+
+def add_author(request):
+    if check_if_logged_in(request):
+        if request.method == 'POST':
+            post_data = request.POST
+            author_id = artExpo_works.new_author(post_data['name'],
+                                          post_data['description'])
+            author = artExpo_works.get_author(author_id)
+            return render(request, 'SMDAdmin/author_detail.html',
+                              {'AlertMessage': '添加成功, 作者id: ' + str(author_id),
+                               'Back_Url': '/smdadmin/authors',
+                               'author_id': author_id,
+                               'author_name': author['name'],
+                               'author_list': artExpo_works.list_all_authors(),
+                               'author_description': author['description']})
+        else:
+            return render(request, 'SMDAdmin/add_author.html')
     else:
         raise Http404

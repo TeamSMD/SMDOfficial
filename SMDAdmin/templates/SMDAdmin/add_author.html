@@ -52,6 +52,7 @@
             input_author_name = document.getElementById('input_author_name');
             upd_info_name = document.getElementById('upd_info_name');
             btn_add_row = document.getElementById('btn_add_row');
+            enable_edit(true);
         }
         function enable_edit(enable) {
             if (enable){
@@ -179,37 +180,29 @@
 			</ul>
 		</div>
 	</nav>
-    {% if AlertMessage %}
-        <div style="margin: 0.7rem" class="alert alert-success">
-            <h5>{{ AlertMessage }} <a href="/smdadmin/add_work">添加作者</a></h5>
-        </div>
-    {% endif %}
     <div style="border-radius: 1rem; margin: 2rem; padding: 0.5rem; text-align: center; box-shadow: 0 0 20px deepskyblue; background: #fff;">
         <div style="border-radius: 0.5rem; width: 100%; box-shadow: 0 0 15px black; background: #fff;">
-            <img style="width: 100%; max-height: 100%; border-radius: 0.5rem" src="{% static 'img/ArtExpo/Authors' %}/{{ author_id }}.jpg"/>
+            <img style="width: 100%; max-height: 100%; border-radius: 0.5rem" src="{% static 'img/ArtExpo/Authors/NoImage' %}"/>
         </div>
         <div style="margin: 1rem 1.5rem 0;">
             <input id="input_author_name" class="form-control" style="font-size: 2.5rem; text-align: center"
-                   placeholder="作者名" width="100%" value="{{ author_name }}" disabled>
+                   placeholder="作者名" width="100%" disabled>
             <p style="margin-bottom: 1rem; text-align: center; max-width: 100%; font-size: 1rem;">关于作者</p>
             <table id="tbl_author_info" style="width: 100%; max-width: 100%; text-align: left; table-layout: fixed">
-                {% for key, value in description.items %}
-                    <tr>
-                        <td class="info_key" style="width: {{ key|length }}em;">{{ key }}</td>
-                        <td class="info_value">{{ value }}</td>
-                    </tr>
-                {% endfor %}
+                <tr>
+                    <td class="info_key">新建行</td>
+                    <td class="info_value">新建行</td>
+                </tr>
             </table>
             <button class="btn btn-primary btn-common" style="margin-top: 1rem" id="btn_enable_edit" onclick="btn_edit_click()">编辑</button>
             <button class="btn btn-danger btn-common" style="margin-top: 0.5rem" id="btn_del_empty" disabled onclick="del_row_click()">删除空白行</button>
             <button class="btn btn-common btn-outline-success" style="margin-top: 0.5rem" id="btn_add_row" disabled onclick="add_row_click()">添加行</button>
             <hr>
-            <form action="/smdadmin/update_author" method="post">
+            <form action="/smdadmin/add_author" method="post">
                 {% csrf_token %}
-                <input type="hidden" id="upd_info_id" name="id" value="{{ author_id }}">
                 <input type="hidden" id="upd_info_des" name="description">
                 <input type="hidden" id="upd_info_name" name="name">
-                <button type="submit" class="btn btn-success btn-common" id="btn_submit">提交更改</button>
+                <button type="submit" class="btn btn-success btn-common" id="btn_submit">添加作者</button>
             </form>
         </div>
     </div>
