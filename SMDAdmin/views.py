@@ -117,6 +117,16 @@ def del_work(request, work_id):
     if check_if_logged_in(request):
         artExpo_works.delete_work(work_id)
         return HttpResponseRedirect('/smdadmin/works')
+    else:
+        raise Http404
+
+
+def author_list(request):
+    if check_if_logged_in(request):
+        authors = artExpo_works.list_all_authors()
+        return render(request, 'SMDAdmin/authors.html', {'authors': authors})
+    else:
+        raise Http404
 
 
 def author_detail(request, author_id):

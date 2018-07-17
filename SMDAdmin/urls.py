@@ -11,5 +11,6 @@ urlpatterns = [
     path('update_work', views.update_work),
     path('add_work', views.add_work),
     path('del_work/<int:work_id>/', views.del_work),
+    path('authors', views.author_list),
     path('author_detail/<int:author_id>/', views.author_detail)
 ]
