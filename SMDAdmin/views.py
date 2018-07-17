@@ -125,6 +125,6 @@ def author_detail(request, author_id):
         if 'error' in author_info:
             raise Http404
         else:
-            return render(request, 'SMDAdmin/author.html', {'author_name': author_info['name'],
+            return render(request, 'SMDAdmin/author_detail.html', {'author_name': author_info['name'],
                                                    'description': author_info['description'],
                                                    'author_id': author_id})
