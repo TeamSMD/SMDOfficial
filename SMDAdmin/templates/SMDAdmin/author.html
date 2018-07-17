@@ -21,6 +21,9 @@
         div {
             vertical-align: top;
         }
+        .btn-common {
+            width: 100%;
+        }
         .info_key {
             border-right: 1px dashed #bebebe;
             border-bottom: 1px dashed lightskyblue;
@@ -33,6 +36,13 @@
         }
     </style>
     <script>
+        let btn_edit;
+        let btn_submit;
+        let btn_del_empty;
+        let upd_info;
+        let upd_info_description;
+        let input_author_name;
+        let btn_add_row;
         function test() {
             {% autoescape off %}
                 let j = "{{ description }}";
@@ -40,9 +50,76 @@
                 console.log(JSON.parse(j));
             {% endautoescape %}
         }
+        function init() {
+            btn_edit = document.getElementById('btn_enable_edit');
+            btn_submit = document.getElementById('btn_submit');
+            btn_del_empty = document.getElementById('btn_del_empty');
+            upd_info_description = document.getElementById('upd_info_des');
+            input_author_name = document.getElementById('input_author_name');
+            upd_info_name = document.getElementById('upd_info_name');
+            btn_add_row = document.getElementById('btn_add_row');
+        }
+        function enable_edit(enable) {
+            if (enable){
+                btn_edit.innerHTML = '完成';
+                btn_edit.className = 'btn btn-success btn-common';
+                input_author_name.disabled = false;
+                btn_del_empty.disabled = false;
+                btn_submit.disabled = true;
+            } else {
+                btn_edit.innerHTML = '编辑';
+                btn_edit.className = 'btn btn-primary btn-common';
+                input_author_name.disabled = true;
+                btn_del_empty.disabled = true;
+                btn_submit.disabled = false;
+                gather_update_info();
+            }
+            let key_tds = document.getElementsByClassName('info_key');
+            let value_tds = document.getElementsByClassName('info_value');
+            for (i = 0; i<key_tds.length; i++) {
+                key_tds[i].contentEditable = enable;
+            }
+            for (i = 0; i<value_tds.length; i++) {
+                value_tds[i].contentEditable = enable;
+            }
+        }
+        function gather_update_info() {
+            upd_info = {};
+            let key_tds = document.getElementsByClassName('info_key');
+            let value_tds = document.getElementsByClassName('info_value');
+            for (i = 0; i<key_tds.length; i++) {
+                if (!(tbl.rows[i].cells[0] === '' && tbl.rows[i].cells[1] === '')) {
+                    upd_info[key_tds[i].innerHTML] = value_tds[i].innerHTML;
+                }
+            }
+            upd_info = JSON.stringify(upd_info);
+            upd_info_description.value = upd_info;
+            upd_info_name.value = input_author_name.value;
+        }
+        function btn_edit_click() {
+            if (btn_edit.innerHTML === '编辑') {
+                enable_edit(true);
+            } else {
+                enable_edit(false);
+            }
+        }
+        function del_row_click() {
+            let tbl = document.getElementById('tbl_author_info');
+            for (i = 0; i<tbl.rows.length; i++) {
+                if (tbl.rows[i].cells[0] === '' && tbl.rows[i].cells[1] === '') {
+                    tbl.deleteRow(i)
+                }
+            }
+        }
+        function add_row_click() {
+            let tbl = document.getElementById('tbl_author_info');
+            let row = tbl.insertRow(-1);
+            row.insertCell(0);
+            row.insertCell(1);
+        }
     </script>
 </head>
-<body onload="test()">
+<body onload="init()">
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<a href="/">
 			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
@@ -75,21 +152,26 @@
             <img style="width: 100%; max-height: 100%; border-radius: 0.5rem" src="{% static 'img/ArtExpo/Authors' %}/{{ author_id }}.jpg"/>
         </div>
         <div style="margin: 1rem 1.5rem 0;">
-            <p style="font-size: 2.5rem;">{{ author_name }}</p>
+            <input id="input_author_name" class="form-control" style="font-size: 2.5rem; text-align: center"
+                   placeholder="作者名" width="100%" value="{{ author_name }}" disabled>
             <p style="margin-bottom: 1rem; text-align: center; max-width: 100%; font-size: 1rem;">关于作者</p>
-            <table style="width: 100%; max-width: 100%; text-align: left; table-layout: fixed">
+            <table id="tbl_author_info" style="width: 100%; max-width: 100%; text-align: left; table-layout: fixed">
                 {% for key, value in description.items %}
                     <tr>
-                        <td contenteditable="true" class="info_key" style="width: {{ key|length }}em;">{{ key }}</td>
-                        <td contenteditable="true" class="info_value">{{ value }}</td>
+                        <td class="info_key" style="width: {{ key|length }}em;">{{ key }}</td>
+                        <td class="info_value">{{ value }}</td>
                     </tr>
                 {% endfor %}
             </table>
-            <button class="btn btn-primary" id="btn_enable_edit">编辑</button>
-            <button class="btn btn-danger" id="btn_del_empty">删除空白行</button>
+            <button class="btn btn-primary btn-common" style="margin-top: 1rem" id="btn_enable_edit" onclick="btn_edit_click()">编辑</button>
+            <button class="btn btn-danger btn-common" style="margin-top: 0.5rem" id="btn_del_empty" disabled onclick="del_row_click()">删除空白行</button>
+            <button class="btn btn-common btn-outline-success" style="margin-top: 0.5rem" id="btn_add_row" disabled onclick="add_row_click()">添加行</button>
             <hr>
-            <form action="/smdadmin/update_author">
-                <input type="hidden" id="upd_info">
+            <form action="/smdadmin/update_author" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="upd_info_des" name="description">
+                <input type="hidden" id="upd_info_name" name="name">
+                <button type="submit" class="btn btn-success btn-common" id="btn_submit">提交更改</button>
             </form>
         </div>
     </div>
