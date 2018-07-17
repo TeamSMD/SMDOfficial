@@ -43,13 +43,7 @@
         let upd_info_description;
         let input_author_name;
         let btn_add_row;
-        function test() {
-            {% autoescape off %}
-                let j = "{{ description }}";
-                j = j.replace(/'/g, '\"');
-                console.log(JSON.parse(j));
-            {% endautoescape %}
-        }
+        let upd_info_name;
         function init() {
             btn_edit = document.getElementById('btn_enable_edit');
             btn_submit = document.getElementById('btn_submit');
@@ -66,25 +60,28 @@
                 input_author_name.disabled = false;
                 btn_del_empty.disabled = false;
                 btn_submit.disabled = true;
+                btn_add_row.disabled = false;
             } else {
                 btn_edit.innerHTML = '编辑';
                 btn_edit.className = 'btn btn-primary btn-common';
                 input_author_name.disabled = true;
                 btn_del_empty.disabled = true;
                 btn_submit.disabled = false;
+                btn_add_row.disabled = true;
                 gather_update_info();
             }
             let key_tds = document.getElementsByClassName('info_key');
             let value_tds = document.getElementsByClassName('info_value');
-            for (i = 0; i<key_tds.length; i++) {
+            for (let i = 0; i<key_tds.length; i++) {
                 key_tds[i].contentEditable = enable;
             }
-            for (i = 0; i<value_tds.length; i++) {
+            for (let i = 0; i<value_tds.length; i++) {
                 value_tds[i].contentEditable = enable;
             }
         }
         function gather_update_info() {
             upd_info = {};
+            let tbl = document.getElementById('tbl_author_info');
             let key_tds = document.getElementsByClassName('info_key');
             let value_tds = document.getElementsByClassName('info_value');
             for (i = 0; i<key_tds.length; i++) {
@@ -105,17 +102,39 @@
         }
         function del_row_click() {
             let tbl = document.getElementById('tbl_author_info');
+            row_del = [];
             for (i = 0; i<tbl.rows.length; i++) {
-                if (tbl.rows[i].cells[0] === '' && tbl.rows[i].cells[1] === '') {
-                    tbl.deleteRow(i)
+                if (tbl.rows[i].cells[0].innerHTML === '' && tbl.rows[i].cells[1].innerHTML === '') {
+                    row_del.push(i);
                 }
             }
+            let t = row_del.length;
+            let max = 0;
+            for (i = 0; i<t; i++) {
+                for (i = 0; i<row_del.length; i++) {
+                    if (row_del[i] > max) {
+                    max = row_del[i];
+                    console.log(max);
+                    }
+                }
+                tbl.deleteRow(max);
+                row_del.splice(max);
+                max = 0;
+            }
+
         }
         function add_row_click() {
             let tbl = document.getElementById('tbl_author_info');
             let row = tbl.insertRow(-1);
-            row.insertCell(0);
-            row.insertCell(1);
+            let cell;
+            cell = row.insertCell(0);
+            cell.innerHTML = '新建行';
+            cell.className = 'info_key';
+            cell.contentEditable = true;
+            cell = row.insertCell(1);
+            cell.innerHTML = '新建行';
+            cell.className = 'info_value';
+            cell.contentEditable = true;
         }
     </script>
 </head>
