@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  style="min-height: 100vh;  background: #f8f9fa;">
 <head>
     <meta charset="UTF-8">
     {% load static %}
@@ -104,10 +104,20 @@
             let tbl = document.getElementById('tbl_author_info');
             row_del = [];
             for (let i = 0; i<tbl.rows.length; i++) {
+                console.log(tbl.rows[i].cells[0].innerHTML);
+                console.log(tbl.rows[i].cells[1].innerHTML);
                 if (tbl.rows[i].cells[0].innerHTML === '' && tbl.rows[i].cells[1].innerHTML === '') {
                     row_del.push(i);
+                    console.log('empty row:'+i);
+                } else {
+                    if (tbl.rows[i].cells[0].innerHTML === '<br>' && tbl.rows[i].cells[1].innerHTML === '<br>') {
+                    row_del.push(i);
+                    console.log('empty row:'+i);
+                    }
                 }
             }
+            console.log('rows to remove');
+            console.log(row_del);
             let t = row_del.length;
             let max = 0;
             let max_index = 0;
@@ -141,7 +151,7 @@
         }
     </script>
 </head>
-<body onload="init()">
+<body onload="init()" style="max-width: 40rem; margin: 0 auto; border: 0.2rem solid #f8f9fa; min-height: 100vh;">
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<a href="/">
 			<img href="" src="{% static '/img/Logo_Transparent_Crop_Small.PNG' %}" style="max-height: 3rem">
