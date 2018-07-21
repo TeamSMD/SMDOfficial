@@ -16,6 +16,8 @@ def check_password(request):
             return JsonResponse({'ok': r})
         else:
             return JsonResponse({'error', 'args missing'})
+    else:
+        return JsonResponse({'error': 'Unauthorized access'})
 
 
 def get_coins(request):
@@ -26,6 +28,8 @@ def get_coins(request):
                 return JsonResponse({'error': 'user not found'})
             else:
                 return JsonResponse({'coins': r})
+    else:
+        return JsonResponse({'error': 'Unauthorized access'})
 
 
 def auth(request):
@@ -55,3 +59,5 @@ def check_user_exists(request):
             return HttpResponse('False')
         else:
             return HttpResponse('True')
+    else:
+        return JsonResponse({'error': 'Unauthorized access'})
