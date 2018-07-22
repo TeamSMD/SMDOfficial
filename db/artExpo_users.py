@@ -92,7 +92,7 @@ def add_coins(username:str, coins:int)->bool:
     if origional != -1:
         conn = connect()
         cur = conn.cursor()
-        cur.execute('update users set coins = ? where username = ?;', (origional + coins, username))
+        cur.execute('update users set coins = ? where username = ?;', (int(origional) + int(coins), username))
         conn.commit()
         conn.close()
         artExpo_transaction_log.new_log(transaction_type.add_value, username, coins)
@@ -110,7 +110,7 @@ def use_coins(username:str, coins:int)->bool:
     if original >= coins:
         conn = connect()
         cur = conn.cursor()
-        cur.execute('update users set coins = ? where username = ?;', (original - coins, username))
+        cur.execute('update users set coins = ? where username = ?;', (int(original) - int(coins), username))
         conn.commit()
         artExpo_transaction_log.new_log(transaction_type.used_by_account, username, coins)
         return True
