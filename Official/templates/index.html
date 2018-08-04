@@ -22,21 +22,6 @@
 			min-width: 17rem;
 			background: #f8f9fa;
 		}
-		@font-face {
-			font-family: 'NotoSerifCJKsc-ExtraLight';
-			src: url("{% static 'fonts/NotoSerifCJKsc-ExtraLight.woff' %}");
-		}
-
-		@font-face {
-			font-family: 'NotoSerifCJKsc-Light';
-			src: url("{% static 'fonts/NotoSerifCJKsc-Light.woff' %}");
-		}
-
-		@font-face {
-			font-family: 'NotoSerifCJKsc-Regular';
-			src: url("{% static 'fonts/NotoSerifCJKsc-Regular.woff' %}");
-		}
-
 		.info_card-name {
 			text-align: center;
 			font-family: 'Architects Daughter', serif;
@@ -79,6 +64,7 @@
 			display: block;
 			margin: 0 auto;
 			font-family: 'Cinzel', sans-serif;
+
 			font-size: 1.7rem;
 			text-align: center;
 		}
@@ -216,7 +202,7 @@
 		<table style="height: 7rem; width: 100%;">
 			<tr style="height: 7rem; width: 100%">
 				<td style="vertical-align: middle; text-align: center; height: 100%; width: 100%; padding: 1rem;">
-					<img style="display: block;max-width: 100%; max-height: 7rem; overflow: hidden; margin: 0 auto;" src="{% static 'img/Title_Who_We_Are.png' %}">
+					<img style="display: block;max-width: 100%; max-height: 7rem; overflow: hidden; margin: 0 auto;" src="{% static 'img/Title_Who_We_Are.png' %}"><span class="sr-only">Who We Are</span>
 				</td>
 			</tr>
 		</table>
@@ -414,9 +400,27 @@
 					margin-left: 0.18rem;">
 			</div>
 		</div>
-		<!--KJ-->
+        <!--Alex-->
 		<div class="info_card-father_div" style="background: #fdfeff;">
 			<div style="height: 100%; width: 100%; background: #ff9292; border-radius: 1rem;
+			 padding-left: 1rem; padding-right: 1rem; padding-top: 3rem;">
+				<div>
+					<p class="info_card-name">Alex</p>
+					<p class="info_card-position">队员</p>
+					<p class="info_card-job">工作：外交 + 宣传</p>
+					<p class="info_card-quote" style="margin-top: 5rem; font-size: 1.7rem; text-align: center">
+						&quot;&nbsp;Love with the mind，but not with the eye.&nbsp;&quot;
+					</p>
+				</div>
+			</div>
+			<div style="height: 6rem;width: 6rem; ;border-radius: 5rem; background: #a9ffee; margin-left: 6.8rem; margin-top: -27.5rem; padding: 0.1rem;">
+				<img src="{% static 'img/Emoji/Alex.png' %}" style="width: 5.5rem; height: 5.5rem; margin-top: 0.2rem;
+					margin-left: 0.18rem;">
+			</div>
+		</div>
+		<!--KJ-->
+		<div class="info_card-father_div" style="background: #fdfeff;">
+			<div style="height: 100%; width: 100%; background: #ffbd78; border-radius: 1rem;
 			 padding-left: 1rem; padding-right: 1rem; padding-top: 3rem;">
 				<div>
 					<p class="info_card-name">Fryderyk</p>
@@ -427,7 +431,7 @@
 					</p>
 				</div>
 			</div>
-			<div style="height: 6rem;width: 6rem; ;border-radius: 5rem; background: #a9ffee; margin-left: 6.8rem; margin-top: -27.5rem; padding: 0.1rem;">
+			<div style="height: 6rem;width: 6rem; ;border-radius: 5rem; background: #a2d9ff; margin-left: 6.8rem; margin-top: -27.5rem; padding: 0.1rem;">
 				<img src="{% static 'img/Emoji/FDK.png' %}" style="width: 5.5rem; height: 5.5rem; margin-top: 0.2rem;
 					margin-left: 0.18rem;">
 			</div>
@@ -438,7 +442,7 @@
 		<table style="height: 7rem; width: 100%;">
 			<tr style="height: 7rem; width: 100%">
 				<td style="vertical-align: middle; text-align: center; height: 100%; width: 100%; padding: 1rem;">
-					<img style="display: block;max-width: 100%; max-height: 7rem; overflow: hidden; margin: 0 auto;" src="{% static 'img/Title_Our_Goals.png' %}">
+					<img style="display: block;max-width: 100%; max-height: 7rem; overflow: hidden; margin: 0 auto;" src="{% static 'img/Title_Our_Goals.png' %}"><span class="sr-only">Our Goals</span>
 				</td>
 			</tr>
 		</table>
@@ -497,7 +501,7 @@
 		</table>
 	</div>
 	<div style="width: 100%; padding: 1rem 0.5rem; white-space: normal; text-align: center">
-		<div onclick="location.href='/SMD-ResearchPaper'" class="what_we_have_done" style="background: #eeeeee;">
+		<div onclick="location.href='/SMD-ResearchPaper'" class="what_we_have_done" style="background: #eeeeee;"><span class="sr-only">What We Have Done</span>
 			<div class="bg-secondary" style="height: 65%; width: 100%;">
 				<p style="font-family: 'Indie Flower', sans-serif; font-size: 3rem; color: white; padding: 2.6rem;">Research paper</p>
 			</div>
